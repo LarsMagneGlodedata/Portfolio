@@ -92,15 +92,15 @@ document.addEventListener('DOMContentLoaded',function(event){
     let dataText = ["Hei, dette er en test!", "Eg skjønne ikkje denne koden", "endå!"];
     let trykkMeg = document.querySelector(".heroH2")
     
-    function typeWriter(text, i, fnCallback) {
+    function typeWriter(text, i, Callback) {
       if (i < (text.length)) {
        document.querySelector(".heroP").innerHTML = text.substring(0, i+1) +'<span aria-hidden="true"></span>';
         setTimeout(function() {
-          typeWriter(text, i + 1, fnCallback)
+          typeWriter(text, i + 1, Callback)
         }, 100);
       }
-      else if (typeof fnCallback == 'function') {
-        setTimeout(fnCallback, 2000);
+      else if (typeof Callback == 'function') {
+        setTimeout(Callback, 2000);
       }
     }
 
@@ -129,15 +129,15 @@ document.addEventListener('DOMContentLoaded',function(event){
     let dataText = ["Hei, dette er en test!", "eg begynner å forstå denne koden", "og gjer et forsøk på å skriva den sjøl!"]
     let trykkMeg = document.querySelector(".heroH2")
 
-     function typeWriter(text, i, fnCallback) {
+     function typeWriter(text, i, Callback) {
         if (i < (text.length)) {
          document.querySelector(".heroP").innerHTML = text.substring(0, i+1) +'<span aria-hidden="true"></span>';
           setTimeout(function() {
-            typeWriter(text, i + 1, fnCallback)
+            typeWriter(text, i + 1, Callback)
             }, 100);
         }
-        else if (typeof fnCallback == 'function') {
-            setTimeout(fnCallback, 2000);
+        else if (typeof Callback == 'function') {
+            setTimeout(Callback, 2000);
         }
     }
 
@@ -160,28 +160,28 @@ document.addEventListener('DOMContentLoaded',function(event){
 
 // Skreve av meg, men med mykje hjelp frå internett.
 document.addEventListener('DOMContentLoaded', function(event) {
-    let dataText = ["Hei, dette er en test!", "JavaScript is a high-level, often just-in-time-compiled language that conforms to the ECMAScript standard.[11] It has dynamic typing, prototype-based object-orientation, and first-class functions. It is multi-paradigm, supporting event-driven, functional, and imperative programming styles. It has application programming interfaces (APIs) for working with text, dates, regular expressions, standard data structures, and the Document Object Model (DOM).", "Takk til wikipedia..."];
+    let dataText = ["Hei, dette er en test!", "Dette er en skrivemaskin-animasjon", "Takk for meg... :D"];
     let heroP = document.querySelector(".heroP");
 
-    function typeWriter(text, i, fnCallback) {
+    function typeWriter(text, i, Callback) {
         if (i < text.length) {
             heroP.innerHTML = text.substring(0, i + 1) + '<span aria-hidden="true"></span>';
             setTimeout(function() {
-                typeWriter(text, i + 1, fnCallback);
-            }, 80);
-        } else if (typeof fnCallback == 'function') {
-            setTimeout(fnCallback, 1500);
+                typeWriter(text, i + 1, Callback);
+            }, 50);
+        } else if (typeof Callback == 'function') {
+            setTimeout(Callback, 3000);
         }
     }
 
-    function deleteText(text, i, fnCallback) {
-        if (i >= 0) {
+    function deleteText(text, i, Callback) {
+        if (i >= !text.length) {
             heroP.innerHTML = text.substring(0, i) + '<span aria-hidden="true"></span>';
             setTimeout(function() {
-                deleteText(text, i - 1, fnCallback);
+                deleteText(text, i - 1, Callback);
             }, 20);
-        } else if (typeof fnCallback == 'function') {
-            setTimeout(fnCallback, 500);
+        } else if (typeof Callback == 'function') {
+            setTimeout(Callback, 500);
         }
     }
 

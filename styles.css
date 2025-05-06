@@ -52,7 +52,7 @@ footer {
 
 
 .heroP {
-  text-transform: capitalize;
+  text-transform: uppercase;
   font-size: 2em;
 }
 
