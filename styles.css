@@ -48,3 +48,22 @@ button {
 footer {
   padding: 1rem;
 }
+
+
+
+.heroP {
+  text-transform: capitalize;
+  font-size: 2em;
+}
+
+span {
+  font-size: 1em;
+  border-right: .05em solid;
+  animation: caret 1s steps(1) infinite;
+}
+
+@keyframes caret {
+  50% {
+    border-color: transparent;
+  }
+}

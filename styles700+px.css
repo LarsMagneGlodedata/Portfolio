@@ -5,15 +5,12 @@ header {
   top: 0;
 }
 
-.menu {
-  display: none;
-}
-
 .navMenu {
   display: flex;
   width: 60%;
   padding: 0 5vw;
   justify-content: space-between;
+  align-items: center;
 }
 
 .navMenu a {
@@ -36,3 +33,4 @@ header {
 .navMenu a:hover {
   background-color: #414141;
 }
+
