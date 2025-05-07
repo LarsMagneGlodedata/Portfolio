@@ -160,23 +160,24 @@ document.addEventListener('DOMContentLoaded',function(event){
 
 // Skreve av meg, men med mykje hjelp frå internett.
 document.addEventListener('DOMContentLoaded', function(event) {
-    let dataText = ["Hei, dette er en test!", "Dette er en skrivemaskin-animasjon", "Takk for meg... !"];
+    let dataText = ["learning", "coding", "creating"];
+    let prefix = ["<span class='prefix-style'>I enjoy:</span>"]
     let heroP = document.querySelector(".heroP");
 
     function typeWriter(text, i, Callback) {
         if (i < text.length) {
-            heroP.innerHTML = text.substring(0, i + 1) + '<span aria-hidden="true"></span>';
+            heroP.innerHTML = prefix + text.substring(0, i + 1) + '<span class="caret" aria-hidden="true"></span>';
             setTimeout(function() {
                 typeWriter(text, i + 1, Callback);
             }, 50);
         } else if (typeof Callback == 'function') {
-            setTimeout(Callback, 3000);
+            setTimeout(Callback, 2000);
         }
     }
 
     function deleteText(text, i, Callback) {
         if (i >= !text.length) {
-            heroP.innerHTML = text.substring(0, i) + '<span aria-hidden="true"></span>';
+            heroP.innerHTML = prefix + text.substring(0, i) + '<span class="caret" aria-hidden="true"></span>';
             setTimeout(function() {
                 deleteText(text, i - 1, Callback);
             }, 20);
