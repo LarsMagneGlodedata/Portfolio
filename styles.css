@@ -54,10 +54,9 @@ footer {
 
 .heroP {
   text-transform: capitalize;
-  font-size: 2em;
-  color: green;
+  color: blue;
   font-family: "syne Mono", monospace;
-  font-weight: 400;
+  font-weight: 800;
   font-style: normal;
 }
 
@@ -73,7 +72,7 @@ footer {
 }
 
 .caret {
-  font-size: 1em;
+  font-size: 0.9em;
   border-right: .05em solid;
   animation: caret 1s steps(1) infinite;
 }
@@ -83,3 +82,4 @@ footer {
     border-color: transparent;
   }
 }
+

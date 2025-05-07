@@ -169,7 +169,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
             heroP.innerHTML = prefix + text.substring(0, i + 1) + '<span class="caret" aria-hidden="true"></span>';
             setTimeout(function() {
                 typeWriter(text, i + 1, Callback);
-            }, 50);
+            }, 100);
         } else if (typeof Callback == 'function') {
             setTimeout(Callback, 2000);
         }
@@ -180,9 +180,9 @@ document.addEventListener('DOMContentLoaded', function(event) {
             heroP.innerHTML = prefix + text.substring(0, i) + '<span class="caret" aria-hidden="true"></span>';
             setTimeout(function() {
                 deleteText(text, i - 1, Callback);
-            }, 20);
+            }, 30);
         } else if (typeof Callback == 'function') {
-            setTimeout(Callback, 500);
+            setTimeout(Callback, 1000);
         }
     }
 
@@ -196,7 +196,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
         } else {
             setTimeout(function() {
                 startTextAnimation(0);
-            }, 3000);
+            }, 1);
         }
     }
 
