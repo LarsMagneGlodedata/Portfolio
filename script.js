@@ -104,21 +104,21 @@ document.addEventListener('DOMContentLoaded',function(event){
       }
     }
 
-     function StartTextAnimation(i) {
+     function startTextAnimation(i) {
        if (typeof dataText[i] == 'undefined'){
           setTimeout(function() {
-            StartTextAnimation(0);
+            startTextAnimation(0);
           }, 5000);
        }
       if (i < dataText[i].length) {
        typeWriter(dataText[i], 0, function(){
-         StartTextAnimation(i + 1);
+         startTextAnimation(i + 1);
        });
       }
     }
 
     trykkMeg.addEventListener("click", () => {
-        StartTextAnimation(0)
+        startTextAnimation(0)
     })
   });
   */
@@ -141,26 +141,26 @@ document.addEventListener('DOMContentLoaded',function(event){
         }
     }
 
-     function StartTextAnimation(i) { 
+     function startTextAnimation(i) { 
         if (typeof dataText[i] == 'undefined'){
              setTimeout(function() {
-               StartTextAnimation(0);
+               startTextAnimation(0);
             }, 5000);
         }
         if (i < dataText[i].length) {
             typeWriter(dataText[i], 0, function(){
-             StartTextAnimation(i + 1);
+             startTextAnimation(i + 1);
             });
         }
     }
 
-    StartTextAnimation(0)
+    startTextAnimation(0)
 })
 */
 
 // Skreve av meg, men med mykje hjelp frå internett.
 document.addEventListener('DOMContentLoaded', function(event) {
-    let dataText = ["Hei, dette er en test!", "Dette er en skrivemaskin-animasjon", "Takk for meg... :D"];
+    let dataText = ["Hei, dette er en test!", "Dette er en skrivemaskin-animasjon", "Takk for meg... !"];
     let heroP = document.querySelector(".heroP");
 
     function typeWriter(text, i, Callback) {
@@ -185,19 +185,19 @@ document.addEventListener('DOMContentLoaded', function(event) {
         }
     }
 
-    function StartTextAnimation(i) {
+    function startTextAnimation(i) {
         if (i < dataText.length) {
             typeWriter(dataText[i], 0, function() {
                 deleteText(dataText[i], dataText[i].length, function() {
-                    StartTextAnimation(i + 1);
+                    startTextAnimation(i + 1);
                 });
             });
         } else {
             setTimeout(function() {
-                StartTextAnimation(0);
+                startTextAnimation(0);
             }, 3000);
         }
     }
 
-    StartTextAnimation(0);
+    startTextAnimation(0);
 });
