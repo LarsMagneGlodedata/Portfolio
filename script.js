@@ -5,7 +5,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const navMenu = document.querySelector(".navMenu")
   const main = document.querySelector("main")
   const overlay = document.querySelector(".overlay")
-  let target = document.querySelector(".catch")
+  const target = document.querySelector(".catch")
+  const targetBall = document.querySelector(".catchBall")
   let mwq = window.matchMedia("(max-width: 699px)")
     
   // function for å åpne nav
@@ -29,6 +30,8 @@ document.addEventListener("DOMContentLoaded", () => {
       overlay.style.height = "0"
       burger.classList.toggle("change")
       target.style = ""
+      targetBall.style = ""
+      console.log(targetBall)
       if (navMenu)
       navMenu.style.height === "0"
       isNavOpen = false
@@ -213,7 +216,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
 document.addEventListener("DOMContentLoaded", () => {
 
     const target = document.querySelector('.catch');
-    const targetBall = document.querySelector('.catch_ball')
+    const targetBall = document.querySelector('.catchBall')
     const gameArea = document.querySelector('.hero');
 
     function getRandomPosition() {
