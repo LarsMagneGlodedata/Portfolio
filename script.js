@@ -202,3 +202,49 @@ document.addEventListener('DOMContentLoaded', function(event) {
 
     startTextAnimation(0);
 });
+
+
+// Denne koden e basically tatt frå Gemini. Men skjønne alt uten om Math.floor(Math.random() * maxX/maxY)
+document.addEventListener("DOMContentLoaded", () => {
+
+    const target = document.querySelector('.catch');
+    const gameArea = document.querySelector('.hero');
+
+    function getRandomPosition() {
+        const maxX = gameArea.offsetWidth - target.offsetWidth;
+        const maxY = gameArea.offsetHeight - target.offsetHeight;
+        const randomX = Math.floor(Math.random() * maxX);
+        const randomY = Math.floor(Math.random() * maxY);
+        return { x: randomX, y: randomY };
+    }
+
+    function moveTarget() {
+        const newPosition = getRandomPosition();
+        target.style.left = newPosition.x + 'px';
+        target.style.top = newPosition.y + 'px';
+    }
+
+    target.addEventListener("mouseover", () => {
+        moveTarget()
+        target.style.height = "50px"
+        target.style.width = "50px"
+        target.style.backgroundColor = "purple"
+    })
+
+    function reset() {
+        target.style = ""
+    }
+
+    let keypress = {
+    }
+    document.addEventListener("keydown", handler) 
+    function handler(x) {
+       keypress[x.key] = true
+       if (x.key === "r") {
+           reset()
+   } else {
+    // do nothing
+   }
+}
+
+})

@@ -12,10 +12,11 @@ body {
   margin: 0;
   font-family: system-ui, sans-serif;
   transition: 0.4s;
+  background-image: linear-gradient(white 10%, cyan, white);
 }
 
 section {
-  height: 400vh;
+  height: 100vh;
 }
 
 nav {
@@ -41,6 +42,8 @@ h1 {
   font-size: 1.5rem;
 }
 
+
+
 button {
   color: black;
 }
@@ -53,11 +56,39 @@ footer {
 
 
 .heroP {
+  width: fit-content;
   text-transform: capitalize;
-  color: blue;
+  color: green;
   font-family: "syne Mono", monospace;
   font-weight: 800;
   font-style: normal;
+
+}
+
+.heroP:hover,
+.heroP:active {
+  animation: shake 0.5s 1 linear;
+}
+
+@keyframes shake {
+  0% { 
+    transform: translateX(0px) translateY(0); 
+} 
+20% { 
+    transform: translateX(-5px) translateY(-5px); 
+} 
+40% { 
+    transform: translateX(4px) translateY(4px); 
+} 
+60% { 
+    transform: translateX(-3px) translateY(3px); 
+} 
+80% { 
+    transform: translateX(2px) translateY(-2px); 
+} 
+100% { 
+    transform: translateX(0px) translateY(0); 
+}
 }
 
 .prefix-style {
@@ -83,3 +114,197 @@ footer {
   }
 }
 
+
+
+.animations {
+  width: 90vw;
+  height: 80vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+
+.sprettball,
+.blokk,
+.sirkel,
+.rotering,
+.boks {
+width: 5em;
+height: 5em;
+}
+
+.sprettball {
+  border-radius: 50%;
+  animation: sprettball 1s;
+  animation-iteration-count: infinite;
+  background-color: orangered;
+  box-shadow: 0 0 10px 1px;
+}
+
+@keyframes sprettball {
+	0% {transform: translateY(0);
+		-webkit-animation-timing-function: ease-in;
+	}
+	40% {}
+	50% {transform: translateY(140px);
+		height: 5em;
+		-webkit-animation-timing-function: ease-out;
+	}
+	55% {transform: translateY(160px); height: 4em; 
+		-webkit-animation-timing-function: ease-in;}
+	65% {transform: translateY(120px); height: 5em; 
+		-webkit-animation-timing-function: ease-out;}
+	95% {
+		transform: translateY(0);		
+		-webkit-animation-timing-function: ease-in;
+	}
+	100% {transform: translateY(0);
+		-webkit-animation-timing-function: ease-in;
+	}
+}
+
+.sprettball-container {
+  display: flex;
+  flex-direction: column;
+  gap: 160px;
+}
+.sprett-gulv {
+  width: 5em;
+  height: 0.5em;
+  background-color: #333333;
+}
+
+.blokk {
+  transition: 0.5s;
+  transition-timing-function: ease-in-out;
+  background-color: maroon;
+  border-radius: 5px;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.blokk:hover, .blokk:active {
+  background-color: red;
+  width: 6em;
+  height: 6em;
+}
+
+.sirkel {
+  border-radius: 50%;
+  background-color: green;
+  animation: sirkel 2s ease-in-out infinite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s;
+}
+
+.sirkel:hover,
+.sirkel:active {
+  background-color: greenyellow;
+}
+
+.strek1,
+.strek2 {
+  position: fixed;
+  width: 5em;
+  height: 0.1em;
+  background-color: #333333;
+}
+
+.strek1 {
+  rotate: 90deg;
+}
+
+@keyframes sirkel {
+  0% {
+    transform: translateX(-1.5em) rotate(-90deg);
+  }
+  50% {
+    transform: translateX(1.5em) ;
+  }
+  100% {
+    transform: translateX(-1.5em) rotate(-90deg);
+  }
+}
+
+.rotering {
+  border-radius: 15px;
+  background-color: blue;
+  animation: roter 10s linear infinite;
+  color: blue;
+  scale: 0.5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s;
+}
+
+.rotering:hover {
+  background-color: aqua;
+}
+
+@keyframes roter {
+  0% {
+    transform: rotate(360deg);
+  }
+  50% {
+    transform: rotate(0deg);
+    scale: 1.5;
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+
+.boks {
+  background-color: red;
+  animation: boks 2s ease-in-out infinite;
+  transition: 0.5s;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.boks:hover,
+.boks:active {
+  background-color: violet;
+}
+
+@keyframes boks {
+  0% {
+    scale: 1;
+  }
+  50% {
+    scale: 1.5;
+  }
+  100% {
+    scale: 1;
+  }
+}
+
+.mini-game {
+  position: absolute;
+  top: 200px;
+  right: 200px;
+  width: 500px;
+  height: 300px;
+}
+
+.catch {
+  z-index: 2;
+  display: inline-block;
+  background-color: black;
+  color: white;
+  border-radius: 100%;
+  height: 5px;
+  width: 5px;
+  transition: 0.3s;
+  position: absolute;
+  top: 148px;
+  left: 150px;
+}

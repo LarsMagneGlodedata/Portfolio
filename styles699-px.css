@@ -79,3 +79,14 @@ nav {
 .heroP {
   font-size: 1.5em;
 }
+
+.animations {
+  display: grid;
+  grid-template-columns: 5em 5em;
+  row-gap: 5em;
+}
+
+.catch {
+  top: 158px;
+  left: 150;
+}
