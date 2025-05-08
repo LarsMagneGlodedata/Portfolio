@@ -5,17 +5,22 @@ document.addEventListener("DOMContentLoaded", () => {
   const navMenu = document.querySelector(".navMenu")
   const main = document.querySelector("main")
   const overlay = document.querySelector(".overlay")
-  // const push = document.querySelector(".pushdown")
-
+  let target = document.querySelector(".catch")
+  let mwq = window.matchMedia("(max-width: 699px)")
+    
   // function for å åpne nav
    function openNav() {
+    if (mwq.matches) {
       navMenu.style.height = "193px"
       overlay.style.height = "450%"
       burger.classList.toggle("change")
-      // push.style.height = "271px"
+      target.style.top = "350px"
       if (navMenu)
       navMenu.style.height === "193px"
       isNavOpen = true
+    } else {
+        // do nothing
+    }
    }
 
   //  function for å lukke nav
@@ -23,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
       navMenu.style.height = "0"
       overlay.style.height = "0"
       burger.classList.toggle("change")
-      // push.style.height = "78px"
+      target.style = ""
       if (navMenu)
       navMenu.style.height === "0"
       isNavOpen = false
@@ -208,6 +213,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
 document.addEventListener("DOMContentLoaded", () => {
 
     const target = document.querySelector('.catch');
+    const targetBall = document.querySelector('.catch_ball')
     const gameArea = document.querySelector('.hero');
 
     function getRandomPosition() {
@@ -226,13 +232,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
     target.addEventListener("mouseover", () => {
         moveTarget()
-        target.style.height = "50px"
-        target.style.width = "50px"
-        target.style.backgroundColor = "purple"
+        target.style.height = "100px"
+        target.style.width = "100px"
+        targetBall.style.height = "50px"
+        targetBall.style.width = "50px"
+        targetBall.style.backgroundColor = "purple"
     })
 
     function reset() {
         target.style = ""
+        targetBall.style = ""
     }
 
     let keypress = {

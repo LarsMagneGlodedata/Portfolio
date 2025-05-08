@@ -297,14 +297,24 @@ height: 5em;
 
 .catch {
   z-index: 2;
-  display: inline-block;
-  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
   color: white;
   border-radius: 100%;
   height: 5px;
   width: 5px;
-  transition: 0.3s;
+  transition: 0.5s;
   position: absolute;
   top: 148px;
   left: 150px;
+}
+
+.catch_ball {
+  background-color: black;
+  width: 5px;
+  height: 5px;
+  display: inline-block;
+  border-radius: 100%;
 }
