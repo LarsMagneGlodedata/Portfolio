@@ -82,8 +82,11 @@ nav {
 
 .animations {
   display: grid;
-  grid-template-columns: 5em 5em;
-  row-gap: 5em;
+  grid-template-columns: 20vw 20vw;
+  gap: 5em;
+  justify-content: center;
+  justify-items: center;
+  align-content: center;
 }
 
 .catch {

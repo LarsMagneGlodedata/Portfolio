@@ -37,3 +37,14 @@ header {
 .heroP{
   font-size: 2em;
 }
+
+.animations {
+  width: 97vw;
+  height: 70vh;
+  display: grid;
+  grid-template-columns: 15vw 15vw 15vw 15vw 15vw;
+  justify-content: center;
+  align-content: center;
+  justify-items: center;
+  gap: 5vw;
+}

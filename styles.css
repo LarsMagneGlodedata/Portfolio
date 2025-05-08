@@ -116,16 +116,10 @@ footer {
 
 
 
-.animations {
-  width: 90vw;
-  height: 80vh;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
 
 
-.sprettball,
+
+
 .blokk,
 .sirkel,
 .rotering,
@@ -140,6 +134,8 @@ height: 5em;
   animation-iteration-count: infinite;
   background-color: orangered;
   box-shadow: 0 0 10px 1px;
+  height: 5em;
+  width: 5em;
 }
 
 @keyframes sprettball {
@@ -165,14 +161,13 @@ height: 5em;
 }
 
 .sprettball-container {
-  display: flex;
-  flex-direction: column;
-  gap: 160px;
+  display: grid;
+  grid-template-rows: 12em;
 }
 
 .sprett-gulv {
   width: 5em;
-  height: 0.5em;
+  height: 0.2em;
   background-color: #333333;
 }
 
