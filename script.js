@@ -264,15 +264,15 @@ document.addEventListener("DOMContentLoaded", () => {
 // har brukt heile dagen på å prøva å skriva denne koden sjøl, men fekk da ikkje til å sjå fint ut
 // så derfor brukte eg gemini til å hjelpa
 // skjønne lite av denne koden, men ska bruka meir tid på å prøva å skriva lignanes sjøl dei neste dagane!
+/*
 document.addEventListener("DOMContentLoaded", () => {
-    function animation(element) {
-        let isFirstMouseover = true;
-        let animation;
-      
-        element.addEventListener('mouseover', () => {
-          if (isFirstMouseover) {
-           
-            animation = element.animate(
+  const blokk = document.querySelector('.blokk');
+  let isFirstMove = true;
+
+    function animation() {
+        blokk.addEventListener('mouseover', () => {
+          if (isFirstMove) {
+            blokk.animate(
               [
                 { transform: 'translateX(-50px)', width: '5em' },
                 { transform: 'translateX(0px)', width: '10em' },
@@ -284,10 +284,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 fill: 'forwards'
               }
             );
-            isFirstMouseover = false;
+            isFirstMove = false;
           } else {
-            
-            animation = element.animate(
+            blokk.animate(
               [
                 { transform: 'translateX(50px)', width: '5em' },
                 { transform: 'translateX(0px)', width: '10em' },
@@ -299,14 +298,59 @@ document.addEventListener("DOMContentLoaded", () => {
                 fill: 'forwards'
               }
             );
-            isFirstMouseover = true;
+            isFirstMove = true;
           }
         });
       }
-      
-      const blokkElement = document.querySelector('.blokk');
-      if (blokkElement) {
-        animation(blokkElement);
+      if (blokk) {
+        animation();
       }
       
+})
+*/
+
+// Skreve på min egen måte som eg forstår lettare sjøl med å bruka to functions som eg calle i ein eventlistener.
+document.addEventListener("DOMContentLoaded", () => {
+  const blokk = document.querySelector(".blokk")
+  let isFirstMove = true
+
+    function slideRight() {
+        blokk.animate(
+          [
+          {transform: 'translateX(-50px)', width: '5em'},
+          {transform: 'translateX(0px)', width: '10em'},
+          {transform: 'translateX(50px)', width: '5em'}
+        ],
+        {
+          duration: 500,
+          easing: 'linear',
+          fill: 'forwards'
+        }
+        )
+        isFirstMove = false
+    }
+
+    function slideLeft() {
+        blokk.animate(
+          [
+          {transform: 'translateX(50px)', width: '5em'},
+          {transform: 'translateX(0px)', width: '10em'},
+          {transform: 'translateX(-50px)', width: '5em'}
+        ],
+        {
+          duration: 500,
+          easing: 'linear',
+          fill: 'forwards'
+        }
+        )
+        isFirstMove = true
+    }
+
+    blokk.addEventListener("mouseover", () => {
+      if (isFirstMove) {
+        slideRight()
+      } else {
+        slideLeft()
+      }
+    })
 })
