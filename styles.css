@@ -120,7 +120,6 @@ footer {
 
 
 
-.blokk,
 .sirkel,
 .rotering,
 .boks {
@@ -172,20 +171,38 @@ height: 5em;
 }
 
 .blokk {
-  transition: 0.5s;
+  transition: 0.3s;
   transition-timing-function: ease-in-out;
   background-color: maroon;
   border-radius: 5px;
-  color: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  width: 5em;
+  height: 5em;
+  transform: translateX(-50px);
+  /* animation: blokkA 1s infinite linear; */
 }
 
-.blokk:hover, .blokk:active {
-  background-color: red;
-  width: 6em;
-  height: 6em;
+@keyframes blokkA {
+  0% {
+    transform: translateX(-50px);
+    width: 5em;
+  }
+  25% {
+    transform: translateX(0px);
+    width: 10em;
+  }
+  50% {
+    transform: translateX(50px);
+    width: 5em;
+  }
+75% {
+  transform: translateX(0px);
+  width: 10em;
+}
+  100% {
+    transform: translateX(-50px);
+    width: 5em;
+  }
+  
 }
 
 .sirkel {

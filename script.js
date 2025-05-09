@@ -16,8 +16,6 @@ document.addEventListener("DOMContentLoaded", () => {
       overlay.style.height = "450%"
       burger.classList.toggle("change")
       target.style.top = "350px"
-      if (navMenu)
-      navMenu.style.height === "193px"
       isNavOpen = true
     } else {
         // do nothing
@@ -32,8 +30,6 @@ document.addEventListener("DOMContentLoaded", () => {
       target.style = ""
       targetBall.style = ""
       console.log(targetBall)
-      if (navMenu)
-      navMenu.style.height === "0"
       isNavOpen = false
    }
 
@@ -259,4 +255,57 @@ document.addEventListener("DOMContentLoaded", () => {
    }
 }
 
+})
+
+// Denne koden e skreve av gemini, med å bruka min egen animasjon laga i styles.css
+// Animasjon i styles.css e kommentert ut, men e berre å fjerna kommentaren
+// hvis du vil sjå den animasjon gå automatisk.
+// har brukt heile dagen på å prøva å skriva denne koden sjøl, men fekk da ikkje til å sjå fint ut
+// så derfor brukte eg gemini til å hjelpa
+// skjønne lite av denne koden, men ska bruka meir tid på å prøva å skriva lignanes sjøl dei neste dagane!
+document.addEventListener("DOMContentLoaded", () => {
+    function animation(element) {
+        let isFirstMouseover = true;
+        let animation;
+      
+        element.addEventListener('mouseover', () => {
+          if (isFirstMouseover) {
+           
+            animation = element.animate(
+              [
+                { transform: 'translateX(-50px)', width: '5em' },
+                { transform: 'translateX(0px)', width: '10em' },
+                { transform: 'translateX(50px)', width: '5em' }
+              ],
+              {
+                duration: 500,
+                easing: 'linear',
+                fill: 'forwards'
+              }
+            );
+            isFirstMouseover = false;
+          } else {
+            
+            animation = element.animate(
+              [
+                { transform: 'translateX(50px)', width: '5em' },
+                { transform: 'translateX(0px)', width: '10em' },
+                { transform: 'translateX(-50px)', width: '5em' } 
+              ],
+              {
+                duration: 500,
+                easing: 'linear',
+                fill: 'forwards'
+              }
+            );
+            isFirstMouseover = true;
+          }
+        });
+      }
+      
+      const blokkElement = document.querySelector('.blokk');
+      if (blokkElement) {
+        animation(blokkElement);
+      }
+      
 })
