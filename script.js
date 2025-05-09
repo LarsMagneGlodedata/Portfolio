@@ -162,6 +162,7 @@ document.addEventListener('DOMContentLoaded',function(event){
 })
 */
 
+// SKRIVEMASKIN
 // Skreve av meg, men med mykje hjelp frå internett.
 document.addEventListener('DOMContentLoaded', function(event) {
     let dataText = ["learning", "coding", "creating"];
