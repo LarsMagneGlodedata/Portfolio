@@ -173,35 +173,11 @@ height: 5em;
 .blokk {
   background-color: maroon;
   border-radius: 5px;
-  width: 5em;
-  height: 5em;
-  transform: translateX(-50px);
-  /* animation: blokkA 1s infinite linear; */
+  width: 100px;
+  height: 100px;
+  transform: translateX(-50px) translateY(-50px);
 }
 
-@keyframes blokkA {
-  0% {
-    transform: translateX(-50px);
-    width: 5em;
-  }
-  25% {
-    transform: translateX(0px);
-    width: 10em;
-  }
-  50% {
-    transform: translateX(50px);
-    width: 5em;
-  }
-75% {
-  transform: translateX(0px);
-  width: 10em;
-}
-  100% {
-    transform: translateX(-50px);
-    width: 5em;
-  }
-  
-}
 
 .sirkel {
   border-radius: 50%;

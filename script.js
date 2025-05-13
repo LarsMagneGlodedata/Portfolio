@@ -267,11 +267,11 @@ document.addEventListener("DOMContentLoaded", () => {
 /*
 document.addEventListener("DOMContentLoaded", () => {
   const blokk = document.querySelector('.blokk');
-  let isFirstMove = true;
+  let isLeft = true;
 
     function animation() {
         blokk.addEventListener('mouseover', () => {
-          if (isFirstMove) {
+          if (isLeft) {
             blokk.animate(
               [
                 { transform: 'translateX(-50px)', width: '5em' },
@@ -284,7 +284,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 fill: 'forwards'
               }
             );
-            isFirstMove = false;
+            isLeft = false;
           } else {
             blokk.animate(
               [
@@ -298,7 +298,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 fill: 'forwards'
               }
             );
-            isFirstMove = true;
+            isLeft = true;
           }
         });
       }
@@ -312,14 +312,15 @@ document.addEventListener("DOMContentLoaded", () => {
 // Skreve på min egen måte som eg forstår lettare sjøl med å bruka to functions som eg calle i ein eventlistener.
 document.addEventListener("DOMContentLoaded", () => {
   const blokk = document.querySelector(".blokk")
-  let isFirstMove = true
+  let isLeft = true
+  let isUp = true
 
     function slideRight() {
         blokk.animate(
           [
-          {transform: 'translateX(-50px)', width: '5em'},
-          {transform: 'translateX(0px)', width: '10em'},
-          {transform: 'translateX(50px)', width: '5em'}
+          {transform: 'translateX(-50px) translateY(-50px)', width: '100px'},
+          {transform: 'translateX(0px) translateY(-50px)', width: '200px'},
+          {transform: 'translateX(50px) translateY(-50px)', width: '100px'}
         ],
         {
           duration: 500,
@@ -327,15 +328,49 @@ document.addEventListener("DOMContentLoaded", () => {
           fill: 'forwards'
         }
         )
-        isFirstMove = false
+        isLeft = false
     }
+
+// På up & down function skjer da nåke interessant. Når du øke width, så øke da i begge retninga, men i height så øke da berre nedover. så for å kompensera for økningen må eg på slideDown øka height og så flytta den med shrinkingen. og i slideUp må eg flytta den med økningen og så shrinka den. Mens i width må eg flytta mens den øke og shrinke. 
+
+    function slideDown() {
+      blokk.animate(
+        [
+        {transform: 'translateY(-50px) translateX(50px)', height: '100px'},
+        {transform: 'translateY(-50px) translateX(50px)', height: '200px'},
+        {transform: 'translateY(50px) translateX(50px)', height: '100px'}
+      ],
+      {
+        duration: 500,
+        easing: 'linear',
+        fill: 'forwards'
+      }
+      )
+      isUp = false
+  }
+
+  function slideUp() {
+    blokk.animate(
+      [
+      {transform: 'translateY(50px) translateX(-50px)', height: '100px'},
+      {transform: 'translateY(-50px) translateX(-50px)', height: '200px'},
+      {transform: 'translateY(-50px) translateX(-50px)', height: '100px'}
+    ],
+    {
+      duration: 500,
+      easing: 'linear',
+      fill: 'forwards'
+    }
+    )
+    isUp = true
+}
 
     function slideLeft() {
         blokk.animate(
           [
-          {transform: 'translateX(50px)', width: '5em'},
-          {transform: 'translateX(0px)', width: '10em'},
-          {transform: 'translateX(-50px)', width: '5em'}
+          {transform: 'translateX(50px) translateY(50px)', width: '100px'},
+          {transform: 'translateX(0px) translateY(50px)', width: '200px'},
+          {transform: 'translateX(-50px) translateY(50px)', width: '100px'}
         ],
         {
           duration: 500,
@@ -343,14 +378,18 @@ document.addEventListener("DOMContentLoaded", () => {
           fill: 'forwards'
         }
         )
-        isFirstMove = true
+        isLeft = true
     }
 
     blokk.addEventListener("mouseover", () => {
-      if (isFirstMove) {
+      if (isLeft && isUp) {
         slideRight()
-      } else {
+      } else if (!isLeft && isUp) {
+        slideDown()
+      } else if (!isLeft && !isUp) {
         slideLeft()
+      } else if (isLeft && !isUp) {
+        slideUp()
       }
     })
 })
